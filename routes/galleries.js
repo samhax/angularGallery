@@ -2,43 +2,43 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var Todo = require('../models/Todo.js');
+var Gallery = require('../models/Gallery.js');
 
-/* GET /todos listing. */
+/* GET /gallery listing. */
 router.get('/', function(req, res, next) {
-  Todo.find(function (err, todos) {
+  Gallery.find(function (err, gallery) {
     if (err) return next(err);
-    res.json(todos);
+    res.json(gallery);
   });
 });
 
-/* POST /todos */
+/* POST /gallery */
 router.post('/', function(req, res, next) {
-  Todo.create(req.body, function (err, post) {
+  Gallery.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 
-/* GET /todos/id */
+/* GET /gallery/id */
 router.get('/:id', function(req, res, next) {
-  Todo.findById(req.params.id, function (err, post) {
+  Gallery.findById(req.params.id, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 
-/* PUT /todos/:id */
+/* PUT /gallery/:id */
 router.put('/:id', function(req, res, next) {
-  Todo.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+  Gallery.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 
-/* DELETE /todos/:id */
+/* DELETE /gallery/:id */
 router.delete('/:id', function(req, res, next) {
-  Todo.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+  Gallery.findByIdAndRemove(req.params.id, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });

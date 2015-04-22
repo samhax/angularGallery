@@ -6,10 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var todos = require('./routes/todos');
+var galleries = require('./routes/galleries');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/todoApp', function(err) {
+mongoose.connect('mongodb://localhost/galleryApp', function(err) {
     if(err) {
         console.log('connection error', err);
     } else {
@@ -32,7 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/todos', todos);
+app.use('/gallery', galleries);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
