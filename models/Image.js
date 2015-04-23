@@ -14,11 +14,7 @@ var find = function(callback){
 };
 
 var create = function(imageItem, callback){
-  if (imageItem.name) {
     image.create(imageItem, callback);
-  } else {
-    callback("No data to create image");
-  }
 };
 
 var findById = function(id, callback){

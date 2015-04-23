@@ -19,18 +19,12 @@ router.get('/', function(req, res, next) {
 
 /* POST /image */
 router.post('/', function(req, res, next) {
-  var form = new multiparty.Form({
-    uploadDir : uploadDirectory
+  Image.create(req.body, function(err, post) {
+    if (err){
+      return next(err);
+    }
+    res.json(post);
   });
-
-  form.parse(req, function(err, fields, files) {
-    Image.create(req.body, function(err, post) {
-      if (err)
-        return next(err);
-      res.json(post);
-    });
-  });
-
 });
 
 /* GET /image/id */
