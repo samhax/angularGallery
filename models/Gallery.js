@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var gallerySchema = new mongoose.Schema({
-  name: String,
+  name: {type: String, required: true },
   created_at: { type: Date, default: Date.now }
 });
 var gallery = mongoose.model('Gallery', gallerySchema);

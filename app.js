@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var galleries = require('./routes/galleries');
+var images = require('./routes/images');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/galleryApp', function(err) {
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/gallery', galleries);
+app.use('/image', images);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
